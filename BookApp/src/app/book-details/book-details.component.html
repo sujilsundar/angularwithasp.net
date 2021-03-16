@@ -1,0 +1,55 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center" style="text-align:center;color:blue; font-size: 2em; font-weight: bold;">Book Detail Register</h1>
+</div>
+<div class="form-group row"></div>
+<div class="form-group row">
+    <label for="search" class="col-sm-2 col-form-label" style="text-align: right;">Search</label>
+    <div class="col-sm-6">
+        <input type="text" [(ngModel)]="searchValue" class="form-control" id="search"/>
+    </div>   
+</div>
+
+<div>
+    <div>
+        <p class="" style="align-self: flex-end;text-align: right;margin-right: 20px;"><button class="btn btn-info float-right m-2"  title="Logout" type="button" (click)="onLogout()">Logout</button></p>
+
+    </div>            
+    
+    <div class="card" style="width: 1100px;">
+        <p class="" style="align-self: flex-end; margin: 20px;"><button (click)="onSub()" class="btn btn-danger" type="submit">
+        New book </button></p>          
+   
+
+        <table class="table" style="margin-left:.67em;">
+            <thead class="thead-light">
+                <tr>
+                    <th>Book Title</th>
+                    <th>ISBN</th>
+                    <th>Author</th>
+                    <th>Book Category</th>
+                    <th>Publisher</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                 <tr *ngFor="let bd of service.list | searchfilter:searchValue">
+                    <td (click)="populateForm(bd)">{{bd.bookTitle}}</td>
+                    <td (click)="populateForm(bd)">{{bd.isbnNumber}}</td>
+                    <td (click)="populateForm(bd)">{{bd.authorName}}</td>
+                    <td (click)="populateForm(bd)">{{bd.bookCategory}}</td>
+                    <td (click)="populateForm(bd)">{{bd.publisherName}}</td>
+                    <td>
+                        <i class="fas fa-edit fa-edit" (click)="populateForm(bd)"  ></i>
+
+                    </td>
+                    <td>
+                        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(bd.bookDetailId)"></i>
+                    </td>
+                </tr>
+            </tbody>
+           
+        </table>
+    </div>
+</div>
+<br>

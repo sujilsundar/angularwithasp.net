@@ -1,0 +1,37 @@
+<h1 style="color:Tomato;text-align:left;display: block;font-size: 3.5em;margin-top: 0.67em;">LIBRARY MANAGEMENT SYSTEM</h1>
+
+<div class="container">
+    <form novalidate #form1="ngForm" (submit)="onSubmit(form1)">
+        <input type="hidden" name="loginID"  [value]="service.formData1.loginID"/>
+        <div class="form-group">
+            <label>USER NAME</label>
+            <input type="text" class="form-control form-control-lg" placeholder="User name" style="width: 500px;text-align:center;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display:block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;"
+            name="userName"  #userName="ngModel" [(ngModel)]="service.formData1.userName" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>PASSWORD</label>
+            <input type="password" class="form-control form-control-lg" placeholder="Password" style="width: 500px;text-align: center;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;"
+            name="password"  #password="ngModel" [(ngModel)]="service.formData1.password" required>
+        </div>
+        <br>
+        <div class="text-center">
+            <button type="submit"  style="background-color: #4CAF50;width: 500px;
+            color: white;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer; display:block; text-align:center;" [disabled]="form1.invalid">login</button>
+        </div>
+    </form>
+</div>

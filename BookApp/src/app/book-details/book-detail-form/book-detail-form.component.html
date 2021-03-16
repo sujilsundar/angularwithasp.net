@@ -1,0 +1,43 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="bookDetailId" [value]="service.formData.bookDetailId" />
+    <div class="form-group">
+        <label>BOOK TITLE</label>
+        <input class="form-control form-control-lg" placeholder="Book title" name="bookTitle"
+            #bookTitle="ngModel" [(ngModel)]="service.formData.bookTitle"
+            required [class.invalid]="bookTitle.invalid &#038;&#038; bookTitle.touched">
+    </div>
+    <div class="form-group">
+        <label>ISBN</label>
+        <input class="form-control form-control-lg" placeholder="ISBN Number" name="IsbnNumber"
+            #isbnNumber="ngModel" [(ngModel)]="service.formData.isbnNumber"
+           required [class.invalid]="isbnNumber.invalid &#038;&#038; isbnNumber.touched" >
+    </div>
+    <div class="form-group">
+        
+            <label>AUTHOR</label>
+            <input class="form-control form-control-lg" placeholder="Author of book" name="authorName"
+                #authorName="ngModel" [(ngModel)]="service.formData.authorName"
+               required  [class.invalid]="authorName.invalid &#038;&#038; authorName.touched">
+        </div>
+        <div class="form-group">
+            <label>BOOK CATEGORY</label>
+            <input class="form-control form-control-lg" placeholder="Category of Book" name="bookCategory"
+                #bookCategory="ngModel" [(ngModel)]="service.formData.bookCategory"
+               required [class.invalid]="bookCategory.invalid &#038;&#038; bookCategory.touched">
+        </div>
+        <div class="form-group">
+            <label>PUBLISHER</label>
+            <input class="form-control form-control-lg" placeholder="Publisher of Book" name="publisherName"
+                #publisherName="ngModel" [(ngModel)]="service.formData.publisherName"
+               required [class.invalid]="publisherName.invalid &#038;&#038; publisherName.touched">
+            
+        </div>
+    <div class="form-group ">
+        <button class="btn btn-info btn-lg btn-block" style="margin: 30px" type="submit"  [disabled]="form.invalid">SUBMIT</button>
+    </div>
+    <div class="form-group">
+        <button style="margin:1px;display: block;border-color: #1ABC9C;color: brown;" type="button" (click)="onCancel(form)">cancel</button>
+
+    </div> 
+   
+</form>
